@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Misty Rain</title>
+    <link rel="icon" href="img/MYSTICWATER.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <header class="header">
+        <div class="volume-control">
+            <button id="volume-toggle" aria-label="Toggle Mute">
+                <span id="volume-icon">🔊</span>
+            </button>
+            <input id="master-volume" type="range" min="0" max="1" step="0.01" value="0.50">
+        </div>
+        <h1>Misty Rain</h1>
+        <div class="credits">
+            <span class="byline">by BitterMillie</span>
+            <a href="https://bsky.app/profile/bittermillie.bsky.social" target="_blank" rel="noopener"><img
+                    src="img/bsky.ico" alt="Bluesky icon"><span>Bluesky</span></a>
+            <a href="https://www.pixiv.net/en/users/17922756" target="_blank" rel="noopener"><img src="img/pixiv.ico"
+                    alt="Pixiv icon"><span>Pixiv</span></a>
+        </div>
+        <div class="rain-layer-back"></div>
+        <div class="rain-layer"></div>
+        <div class="mist-layer"></div>
+        <div class="mist-border top"></div>
+        <div class="mist-border bottom"></div>
+    </header>
+
+    <select id="chapter" class="chapter-select">
+        <option value="1">Chapter 1</option>
+        <option value="2">Chapter 2</option>
+    </select>
+
+    <div class="viewer" id="viewer">
+        <div class="nav-arrow left" id="arrow-left">&#10094;</div>
+        <img id="page" src="" alt="Manga page" loading="lazy" />
+        <div id="soon" class="coming-soon" style="display:none">Coming Soon</div>
+        <div class="nav-arrow right" id="arrow-right">&#10095;</div>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/music.js"></script>
+</body>
+
+</html>
