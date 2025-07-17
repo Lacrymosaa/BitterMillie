@@ -1,5 +1,6 @@
 const audioTracks = {
     background: { src: 'music/rain.mp3', volume: 0.30, loop: true },
+    nuvema: { src: 'music/nuvema.ogg', volume: 0.30, loop: true},
     estela: { src: 'music/estela.ogg', volume: 0.30, loop: true },
     night: { src: 'music/night.ogg', volume: 0.30, loop: true }
 };
@@ -45,6 +46,7 @@ function fade(audio, to, duration = 400) {
 }
 
 createAudio('background', audioTracks.background);
+createAudio('nuvema', audioTracks.nuvema);
 createAudio('estela', audioTracks.estela);
 createAudio('night', audioTracks.night);
 
@@ -55,6 +57,7 @@ let masterVolume = parseFloat(volumeSlider.value);
 let muted = false;
 
 const musicGroups = [
+    { name: 'nuvema', chapters: [1], pages: [1, 2, 3, 4], audios: ['nuvema'], muteBackground: false },
     { name: 'estela', chapters: [1], pages: [5, 6], audios: ['estela'], muteBackground: true },
     { name: 'night', chapters: [1], pages: [7, 8, 9, 10], audios: ['night'], muteBackground: false }
 ];
