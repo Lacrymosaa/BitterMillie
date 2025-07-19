@@ -367,3 +367,19 @@
                 padding-right: 0.2rem;
             }
         }
+
+        #lang-toggle {
+            background-color: #0a0a0a;
+            color: #ccc;
+            border: 1px solid #222;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        #lang-toggle:hover {
+            background-color: #111;
+            color: #fff;
+        }

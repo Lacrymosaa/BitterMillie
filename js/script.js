@@ -13,7 +13,7 @@ const imgEl = document.getElementById('page'), soonEl = document.getElementById(
 function render() {
     const pages = chapters[currentChapter];
     if (!pages.length) { imgEl.style.display = 'none'; leftBtn.style.display = 'none'; rightBtn.style.display = 'none'; soonEl.style.display = 'block'; }
-    else { soonEl.style.display = 'none'; imgEl.style.display = 'block'; leftBtn.style.display = pageIndex > 0 ? 'block' : 'none'; rightBtn.style.display = pageIndex < pages.length - 1 ? 'block' : 'none'; imgEl.src = pages[pageIndex]; }
+    else { soonEl.style.display = 'none'; imgEl.style.display = 'block'; leftBtn.style.display = pageIndex > 0 ? 'block' : 'none'; rightBtn.style.display = pageIndex < pages.length - 1 ? 'block' : 'none'; imgEl.src = getLocalizedImagePath(pages[pageIndex]); }
     preloadNextImage();
 }
 selectEl.addEventListener('change', e => { currentChapter = +e.target.value; pageIndex = 0; render(); });
@@ -35,3 +35,18 @@ window.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < 4; i++) { const c = document.createElement('div'); c.className = 'mist-cloud'; const top = -20 + Math.random() * 140; const h = 25 + Math.random() * 35; const dur = 40 + Math.random() * 20; const pd = 10 + Math.random() * 10; const del = -Math.random() * dur; c.style.top = top + '%'; c.style.height = h + '%'; c.style.animationDuration = `${dur}s, ${pd}s`; c.style.animationDelay = `${del}s, ${-Math.random() * pd}s`; mistLayer.appendChild(c); }
     render();
 });
+let currentLanguage = 'EN';
+
+const langToggleBtn = document.getElementById('lang-toggle');
+langToggleBtn.addEventListener('click', () => {
+    currentLanguage = currentLanguage === 'EN' ? 'ES' : 'EN';
+    langToggleBtn.textContent = currentLanguage === 'EN' ? 'Esp' : 'Eng';
+    render();
+});
+
+function getLocalizedImagePath(path) {
+    if (currentLanguage === 'EN') return path;
+    const parts = path.split('.');
+    parts[parts.length - 2] += '_ESP'; 
+    return parts.join('.');
+}
